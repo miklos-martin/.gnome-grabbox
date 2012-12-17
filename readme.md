@@ -33,7 +33,9 @@ They might be cleaned out in the future.
 ## Dependencies
 
 Among gnome and python, you must have [Dropbox](https://www.dropbox.com/downloading?os=lnx), and the [Dropbox CLI](http://www.dropboxwiki.com/Using_Dropbox_CLI) installed.
+
 **NOTE** The path of your Dropbox public folder, and of the `dropbox.py` is also burned in for now. They are `~/Dropbox` and `~/bin/dropbox.py`. These are the paths by default.
+
 Other dependencies: xclip.
 
 ## Debugging
