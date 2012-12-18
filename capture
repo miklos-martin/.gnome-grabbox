@@ -8,7 +8,7 @@ screenshotsFolder=~/Dropbox/Public/screenshots
 iconPath=$grabboxHome/img/dropboxstatus-idle.png
 notifyMsg="Capture and upload ready! Picture url is: "
 
-mkdir -p screenshotsFolder
+mkdir -p $screenshotsFolder
 
 # Generate a random filename, and build it's ful path
 randFileName=$( < /dev/urandom tr -dc A-Za-z0-9 | head -c8 )
