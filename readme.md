@@ -21,7 +21,7 @@ git clone https://github.com/miklos-martin/.gnome-grabbox.git
 # You probably will have to make the script executable
 chmod +x ~/.gnome-grabbox/capture
 ```
-Make a keyboard shortcut which runs the `~/.gnome-grabbox/capture`
+Make a keyboard shortcut which runs the `/full/path/to/your/homedir/.gnome-grabbox/capture`
 
 You're done!
 
