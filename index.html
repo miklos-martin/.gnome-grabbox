@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>.gnome-grabbox by miklos-martin</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/miklos-martin/.gnome-grabbox">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>.gnome-grabbox</h1>
+            <h2>Grabbox for linux</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/miklos-martin/.gnome-grabbox/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/miklos-martin/.gnome-grabbox/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>Gnome Grabbox</h1>
+
+<p>It's a tool to provide <a href="http://grabbox.devsoft.no/">grabbox</a> functionality on linux, in gnome environment.</p>
+
+<p>Basicly it takes care of </p>
+
+<ul>
+<li>saving screenshots to a dropbox public folder</li>
+<li>with random names</li>
+<li>shorten the public url of that screenshot</li>
+<li>then copy this short url to clipboard</li>
+</ul><p>The random names and the shotened url features are optional in grabbox, but burned-in in this script.</p>
+
+<h2>How to install</h2>
+
+<p>Clone this repo in your home directory</p>
+
+<div class="highlight"><pre><span class="nb">cd</span> ~
+git clone https://github.com/miklos-martin/.gnome-grabbox.git
+<span class="c"># You probably will have to make the script executable</span>
+chmod +x ~/.gnome-grabbox/capture
+</pre></div>
+
+<p>Make a keyboard shortcut which runs the <code>/full/path/to/your/homedir/.gnome-grabbox/capture</code></p>
+
+<p>You're done!</p>
+
+<p><strong>NOTE</strong> You should clone it to your home dir, with that exact name.
+It's in an early state of development, and has some paths burned in the code.</p>
+
+<p>They might be cleaned out in the future.</p>
+
+<h2>Dependencies</h2>
+
+<p>Among gnome, python and xclip, you must have <a href="https://www.dropbox.com/downloading?os=lnx">Dropbox</a>, and the <a href="http://www.dropboxwiki.com/Using_Dropbox_CLI">Dropbox CLI</a> installed.</p>
+
+<p><strong>NOTE</strong> The path of your Dropbox public folder, and of the <code>dropbox.py</code> is also burned in for now. They are <code>~/Dropbox</code> and <code>~/bin/dropbox.py</code>. These are the paths by default.</p>
+
+<h2>Debugging</h2>
+
+<p>If you notice, that this script doesn't do anything, try run it from a terminal. You may have unmet dependencies, or other paths.</p>
+
+<h2>Usage</h2>
+
+<ol>
+<li>Take a screenshot with the chosen keyboard shortcut.</li>
+<li>You might have to wait for a second or two, while dropbox finishes the upload.</li>
+<li>The short URL of your fresh screenshot will be on your clipboard.</li>
+</ol><hr><p>If you want to use it in other environments, please send a pull request on a new branch.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/miklos-martin">miklos-martin</a> can be found on <a href="https://github.com/miklos-martin/.gnome-grabbox">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-35915314-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
