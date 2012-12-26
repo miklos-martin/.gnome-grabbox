@@ -29,11 +29,15 @@ url=$(~/bin/dropbox.py puburl $path)
 curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' 1>$grabboxHome/tmp 2>/dev/null
 shortenedUrl=$(cat $grabboxHome/tmp | awk '/id/' | sed -e 's/http\:/http|/g' | cut -d ':' -f 2 | sed -e 's/[ ",]//g' -e 's/|/:/g') 
 
-# Copy to clipboard
-echo $shortenedUrl | xclip -selection clipboard
-
 # Clean up
 rm $grabboxHome/tmp
 
-# And send a notification
-notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
+# if escape the shortcut of selection sreenshot
+if [ "$shortenedUrl" == "" ]
+then 
+    # Copy to clipboard
+    echo $shortenedUrl | xclip -selection clipboard
+
+    # And send a notification
+    notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
+fi
