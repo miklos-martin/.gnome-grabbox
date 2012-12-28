@@ -16,6 +16,11 @@ path=$screenshotsFolder/$randFileName.png
 # Take the screenshot
 gnome-screenshot -a -f $path
 
+# If the screenshot was cancelled, do nothing
+if [ ! -e $path ]; then
+    exit 0
+fi
+
 # Wait for dropbox to finish the upload
 until [ "$dropboxStatus" = 'Idle' ]; do
     # Checking the status of dropbox
@@ -32,12 +37,8 @@ shortenedUrl=$(cat $grabboxHome/tmp | awk '/id/' | sed -e 's/http\:/http|/g' | c
 # Clean up
 rm $grabboxHome/tmp
 
-# if escape the shortcut of selection sreenshot
-if [ "$shortenedUrl" == "" ]
-then 
-    # Copy to clipboard
-    echo $shortenedUrl | xclip -selection clipboard
+# Copy to clipboard
+echo $shortenedUrl | xclip -selection clipboard
 
-    # And send a notification
-    notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
-fi
+# And send a notification
+notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
