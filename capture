@@ -31,8 +31,7 @@ done
 url=$(~/bin/dropbox.py puburl $path)
 
 # Shorten it with google urlshortener
-curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' 1>$grabboxHome/tmp 2>/dev/null
-shortenedUrl=$(cat $grabboxHome/tmp | awk '/id/' | sed -e 's/http\:/http|/g' | cut -d ':' -f 2 | sed -e 's/[ ",]//g' -e 's/|/:/g') 
+shortenedUrl=$(curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' | jq '.id' | sed -e 's/"//g')
 
 # Clean up
 rm $grabboxHome/tmp
