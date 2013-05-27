@@ -30,14 +30,8 @@ done
 # Get the public url of the screenshot, we've just uploaded
 url=$(~/bin/dropbox.py puburl $path)
 
-# Shorten it with google urlshortener
-shortenedUrl=$(curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' | jq '.id' | sed -e 's/"//g')
-
-# Clean up
-rm $grabboxHome/tmp
-
-# Copy to clipboard
-echo $shortenedUrl | xclip -selection clipboard
+# Shorten it with google urlshortener and copy to clipboard
+curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' | jq '.id' | sed -e 's/"//g' | xclip -selection clipboard
 
 # And send a notification
 notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
