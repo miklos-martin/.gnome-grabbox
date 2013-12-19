@@ -1,0 +1,23 @@
+##
+# This is a configuration file sample for .gnome-grabbox
+# The default values are shown for each directive
+# You only need to change them, if you want to customize the default behavior
+# Place this file to ~/.gnome-grabbox.conf
+##
+
+# The path of the repo you've cloned
+#grabboxHome=~/.gnome-grabbox
+
+# The directory path, where screenshots will be saved
+# Point this one to a dropbox-synchronized directory
+#screenshotsFolder=~/Dropbox/Public/screenshots
+
+# The path of the dropbox CLI executeable
+#dropboxCli=~/bin/dropbox.py
+
+# Wether to use random filenames, set this to 0 if you want date filenames instead
+#useRandomFileNames=1
+
+# Wheter to use url shortener, set this to 0, if you don't want to use url shortener
+#useShortener=1
+

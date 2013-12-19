@@ -1,17 +1,24 @@
 #!/bin/sh
 
-# Some config, and initialization
+# Default config
 grabboxHome=~/.gnome-grabbox
 screenshotsFolder=~/Dropbox/Public/screenshots
+dropboxCli=~/bin/dropbox.py
+useRandomFileNames=1
+useShortener=1
+
+# Include user config overrides
+. ~/.gnome-grabbox.conf
+
+# Generate a random filename if necessary
+if [ $useRandomFileNames -eq 1 ]; then
+    fileName=$( < /dev/urandom tr -dc A-Za-z0-9 | head -c8 )
+else
+    fileName=`date '+%Y.%m.%d.%H.%M.%S'`
+fi
+
 mkdir -p $screenshotsFolder
-
-# Prettify notification
-iconPath=$grabboxHome/img/dropboxstatus-idle.png
-notifyMsg="Capture and upload ready! Picture url is: "
-
-# Generate a random filename, and build it's full path
-randFileName=$( < /dev/urandom tr -dc A-Za-z0-9 | head -c8 )
-path=$screenshotsFolder/$randFileName.png
+path=$screenshotsFolder/$fileName.png
 
 # Take the screenshot
 gnome-screenshot -a -f $path
@@ -24,21 +31,26 @@ fi
 # Wait for dropbox to finish the upload
 until [ "$dropboxStatus" = 'Idle' ]; do
     # Checking the status of dropbox
-    dropboxStatus=$(~/bin/dropbox.py status 2>/dev/null)
+    dropboxStatus=$($dropboxCli status 2>/dev/null)
 done
 
 # Get the public url of the screenshot, we've just uploaded
-url=$(~/bin/dropbox.py puburl $path)
+url=$($dropboxCli puburl "$path")
 
-# Shorten it with google urlshortener
-curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' 1>$grabboxHome/tmp 2>/dev/null
-shortenedUrl=$(cat $grabboxHome/tmp | awk '/id/' | sed -e 's/http\:/http|/g' | cut -d ':' -f 2 | sed -e 's/[ ",]//g' -e 's/|/:/g') 
+if [ $useShortener -eq 1 ]; then
+    # Shorten it with google urlshortener
+    curl "https://www.googleapis.com/urlshortener/v1/url" -H 'Content-Type: application/json' -d '{"longUrl": "'$url'"}' 1>$grabboxHome/tmp 2>/dev/null
+    url=$(cat $grabboxHome/tmp | awk '/id/' | sed -e 's/http\:/http|/g' | cut -d ':' -f 2 | sed -e 's/[ ",]//g' -e 's/|/:/g') 
 
-# Clean up
-rm $grabboxHome/tmp
+    # Clean up
+    rm $grabboxHome/tmp
+fi
 
 # Copy to clipboard
-echo $shortenedUrl | xclip -selection clipboard
+echo $url | xclip -selection clipboard
 
-# And send a notification
-notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg$shortenedUrl"
+# And send a pretty notification
+iconPath=$grabboxHome/img/dropboxstatus-idle.png
+notifyMsg="Capture and upload ready! Picture url is:"
+
+notify-send -i $iconPath -t 100 -h int:transient:1 "$notifyMsg $url"

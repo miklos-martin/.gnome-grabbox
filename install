@@ -1,0 +1,22 @@
+#!/bin/sh
+
+die() {
+    echo $1
+    exit 1
+}
+
+cd ~
+
+echo Cloning the repo ...
+git clone https://github.com/miklos-martin/.gnome-grabbox.git || die "Cloning failed."
+
+configFilePath=~/.gnome-grabbox.conf
+echo Creating configuration file $configFilePath ...
+if [ -e $configFilePath ]; then
+    echo Config file found, backing it up to $configFilePath.bckp
+    mv $configFilePath $configFilePath.bckp || die "Couldn't create backup file, please check your configuration manually."
+fi
+cp .gnome-grabbox/config.sample $configFilePath || die "Couldn't create configuration file, please check your configuration manually."
+
+echo Done
+
