@@ -3,50 +3,33 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
     <title>.gnome-grabbox by miklos-martin</title>
   </head>
 
   <body>
-    <a id="forkme_banner" href="https://github.com/miklos-martin/.gnome-grabbox">View on GitHub</a>
-    <div class="shell">
+    <header>
+      <div class="inner">
+        <h1>.gnome-grabbox</h1>
+        <h2>Grabbox for linux</h2>
+        <a href="https://github.com/miklos-martin/.gnome-grabbox" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-      <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>.gnome-grabbox</h1>
-            <h2>Grabbox for linux</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-      </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/miklos-martin/.gnome-grabbox/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/miklos-martin/.gnome-grabbox/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
-        <h1>Gnome Grabbox</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="gnome-grabbox" class="anchor" href="#gnome-grabbox"><span class="octicon octicon-link"></span></a>Gnome Grabbox</h1>
 
 <p>It's a tool to provide <a href="http://grabbox.devsoft.no/">grabbox</a> functionality on linux, in gnome environment.</p>
 
@@ -57,61 +40,73 @@
 <li>with random names</li>
 <li>shorten the public url of that screenshot</li>
 <li>then copy this short url to clipboard</li>
-</ul><p>The random names and the shotened url features are optional in grabbox, but burned-in in this script.</p>
+</ul><p>The random names and the shortened url features are optional, see the <a href="https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample">configuration sample</a>.</p>
 
-<h2>How to install</h2>
+<h2>
+<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h2>
 
-<p>Clone this repo in your home directory</p>
+<p><code>curl -L https://raw.github.com/miklos-martin/.gnome-grabbox/master/install | sh</code></p>
 
-<div class="highlight"><pre><span class="nb">cd</span> ~
+<p>or</p>
+
+<p><code>wget --no-check-certificate https://raw.github.com/miklos-martin/.gnome-grabbox/master/install -O - | sh</code></p>
+
+<p>Or you can do it manually</p>
+
+<pre lang="shell"><code>cd ~
 git clone https://github.com/miklos-martin/.gnome-grabbox.git
-<span class="c"># You probably will have to make the script executable</span>
-chmod +x ~/.gnome-grabbox/capture
-</pre></div>
+cp .gnome-grabbox/config.sample .gnome-grabbox.conf
+</code></pre>
 
 <p>Make a keyboard shortcut which runs the <code>/full/path/to/your/homedir/.gnome-grabbox/capture</code></p>
 
 <p>You're done!</p>
 
-<p><strong>NOTE</strong> You should clone it to your home dir, with that exact name.
-It's in an early state of development, and has some paths burned in the code.</p>
+<h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
-<p>They might be cleaned out in the future.</p>
+<p>See the <a href="https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample">configuration sample</a></p>
 
-<h2>Dependencies</h2>
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
-<p>Among gnome, python and xclip, you must have <a href="https://www.dropbox.com/downloading?os=lnx">Dropbox</a>, and the <a href="http://www.dropboxwiki.com/Using_Dropbox_CLI">Dropbox CLI</a> installed.</p>
+<ul>
+<li><a href="https://www.dropbox.com/downloading?os=lnx">Dropbox</a></li>
+<li><a href="http://www.dropboxwiki.com/Using_Dropbox_CLI">Dropbox CLI</a></li>
+<li><a href="http://manpages.ubuntu.com/manpages/precise/man1/xclip.1.html">xclip</a></li>
+</ul><h2>
+<a name="debugging" class="anchor" href="#debugging"><span class="octicon octicon-link"></span></a>Debugging</h2>
 
-<p><strong>NOTE</strong> The path of your Dropbox public folder, and of the <code>dropbox.py</code> is also burned in for now. They are <code>~/Dropbox</code> and <code>~/bin/dropbox.py</code>. These are the paths by default.</p>
+<p>If you notice, that this script doesn't do anything, try run it from a terminal. You may have unmet dependencies, or you need to customize the paths of dropbox stuffs. See the <a href="https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample">configuration sample</a>.</p>
 
-<h2>Debugging</h2>
-
-<p>If you notice, that this script doesn't do anything, try run it from a terminal. You may have unmet dependencies, or other paths.</p>
-
-<h2>Usage</h2>
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <ol>
 <li>Take a screenshot with the chosen keyboard shortcut.</li>
 <li>You might have to wait for a second or two, while dropbox finishes the upload.</li>
 <li>The short URL of your fresh screenshot will be on your clipboard.</li>
 </ol><hr><p>If you want to use it in other environments, please send a pull request on a new branch.</p>
-      </section>
+        </section>
 
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/miklos-martin">miklos-martin</a> can be found on <a href="https://github.com/miklos-martin/.gnome-grabbox">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
+        <aside id="sidebar">
+          <a href="https://github.com/miklos-martin/.gnome-grabbox/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/miklos-martin/.gnome-grabbox/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
+          <p class="repo-owner"><a href="https://github.com/miklos-martin/.gnome-grabbox"></a> is maintained by <a href="https://github.com/miklos-martin">miklos-martin</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-              <script type="text/javascript">
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
