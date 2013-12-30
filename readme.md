@@ -14,7 +14,9 @@ The random names and the shortened url features are optional, see the [configura
 ## How to install
 
 `curl -L https://raw.github.com/miklos-martin/.gnome-grabbox/master/install | sh`
+
 or
+
 `wget --no-check-certificate https://raw.github.com/miklos-martin/.gnome-grabbox/master/install -O - | sh`
 
 Or you can do it manually
