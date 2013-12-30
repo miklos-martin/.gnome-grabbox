@@ -6,9 +6,12 @@ screenshotsFolder=~/Dropbox/Public/screenshots
 dropboxCli=~/bin/dropbox.py
 useRandomFileNames=1
 useShortener=1
+configFilePath=~/.gnome-grabbox.conf
 
 # Include user config overrides
-. ~/.gnome-grabbox.conf
+if [ -e $configFilePath ]; then
+    . $configFilePath
+fi
 
 # Generate a random filename if necessary
 if [ $useRandomFileNames -eq 1 ]; then
