@@ -9,38 +9,39 @@ Basicly it takes care of
 * shorten the public url of that screenshot
 * then copy this short url to clipboard
 
-The random names and the shotened url features are optional in grabbox, but burned-in in this script.
+The random names and the shortened url features are optional, see the [configuration sample](https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample).
 
 ## How to install
 
-Clone this repo in your home directory
+`curl -L https://raw.github.com/miklos-martin/.gnome-grabbox/master/install | sh`
+or
+`wget --no-check-certificate https://raw.github.com/miklos-martin/.gnome-grabbox/master/install -O - | sh`
+
+Or you can do it manually
 
 ```shell
 cd ~
 git clone https://github.com/miklos-martin/.gnome-grabbox.git
-# You probably will have to make the script executable
-chmod +x ~/.gnome-grabbox/capture
+cp .gnome-grabbox/config.sample .gnome-grabbox.conf
 ```
+
 Make a keyboard shortcut which runs the `/full/path/to/your/homedir/.gnome-grabbox/capture`
 
 You're done!
 
-**NOTE** You should clone it to your home dir, with that exact name.
-It's in an early state of development, and has some paths burned in the code.
+## Configuration
 
-They might be cleaned out in the future.
+See the [configuration sample](https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample)
 
 ## Dependencies
 
-Among gnome and python, you must have [Dropbox](https://www.dropbox.com/downloading?os=lnx), and the [Dropbox CLI](http://www.dropboxwiki.com/Using_Dropbox_CLI) installed.
-
-**NOTE** The path of your Dropbox public folder, and of the `dropbox.py` is also burned in for now. They are `~/Dropbox` and `~/bin/dropbox.py`. These are the paths by default.
-
-Other dependencies: xclip.
+* [Dropbox](https://www.dropbox.com/downloading?os=lnx)
+* [Dropbox CLI](http://www.dropboxwiki.com/Using_Dropbox_CLI)
+* [xclip](http://manpages.ubuntu.com/manpages/precise/man1/xclip.1.html)
 
 ## Debugging
 
-If you notice, that this script doesn't do anything, try run it from a terminal. You may have unmet dependencies, or other paths.
+If you notice, that this script doesn't do anything, try run it from a terminal. You may have unmet dependencies, or you need to customize the paths of dropbox stuffs. See the [configuration sample](https://github.com/miklos-martin/.gnome-grabbox/blob/master/config.sample).
 
 ## Usage
 
