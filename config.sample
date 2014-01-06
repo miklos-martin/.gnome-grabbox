@@ -15,9 +15,9 @@
 # The path of the dropbox CLI executeable
 #dropboxCli=~/bin/dropbox.py
 
-# Wether to use random filenames, set this to 0 if you want date filenames instead
+# Whether to use random filenames, set this to 0 if you want date filenames instead
 #useRandomFileNames=1
 
-# Wheter to use url shortener, set this to 0, if you don't want to use url shortener
+# Whether to use url shortener, set this to 0, if you don't want to use url shortener
 #useShortener=1
 
