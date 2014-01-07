@@ -54,3 +54,5 @@ If you notice, that this script doesn't do anything, try run it from a terminal.
 ----
 
 If you want to use it in other environments, please send a pull request on a new branch.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/miklos-martin/.gnome-grabbox/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
