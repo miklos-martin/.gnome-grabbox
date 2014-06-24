@@ -32,7 +32,7 @@ if [ ! -e $path ]; then
 fi
 
 # Wait for dropbox to finish the upload
-until [ "$dropboxStatus" = 'Idle' ]; do
+until [ "$dropboxStatus" = 'Up to date' ]; do
     # Checking the status of dropbox
     dropboxStatus=$($dropboxCli status 2>/dev/null)
 done
