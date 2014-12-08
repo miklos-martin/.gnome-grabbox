@@ -2,7 +2,7 @@
 
 It's a tool to provide [grabbox](http://grabbox.devsoft.no/) functionality on linux, in gnome environment.
 
-Basicly it takes care of 
+Basically it takes care of 
 
 * saving screenshots to a dropbox public folder
 * with random names
