@@ -40,6 +40,7 @@ See the [configuration sample](https://github.com/miklos-martin/.gnome-grabbox/b
 * [Dropbox](https://www.dropbox.com/downloading?os=lnx)
 * [Dropbox CLI](http://www.dropboxwiki.com/Using_Dropbox_CLI)
 * [xclip](http://manpages.ubuntu.com/manpages/precise/man1/xclip.1.html)
+* [libnotify-bin](https://packages.debian.org/sid/libnotify-bin) (available on ubuntu by default)
 
 ## Debugging
 
